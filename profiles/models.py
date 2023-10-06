@@ -10,7 +10,7 @@ class Profile(models.Model):
     bio = models.TextField(max_length=100, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    git = models.ImageField(upload_to='images/', default='../default_profile_udonlm')
+    avatar = models.ImageField(upload_to='images/', default='../default_profile_udonlm')
     
     class Meta:
         ordering = ['-created_at']
