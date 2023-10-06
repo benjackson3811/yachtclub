@@ -8,10 +8,10 @@ class CommentSerializer(serializers.ModelSerializer):
     Comment model Serializer
     Adds three extra fields when returning a list of Comment instances
     """
-    owner = serializers.ReadOnlyField(source='owner.username')
+    user = serializers.ReadOnlyField(source='user.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
-    profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
+    avatar = serializers.ReadOnlyField(source='owner.profile.avatar.url')
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
 
@@ -22,8 +22,8 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = [
-            'id', 'owner', 'is_owner', 'profile_id', 'profile_image',
-            trip, 'created_at', 'updated_at', 'content'
+            'id', 'user', 'is_owner', 'profile_id', 'avatar',
+            'trip', 'created_at', 'updated_at', 'content'
         ]
 
 

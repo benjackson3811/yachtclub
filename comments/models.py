@@ -6,7 +6,7 @@ class Comment(models.Model):
     """
     Comment model, linked to User and Trip
     """
-    owner = models.ForeignKey(User, related_name='author', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='author', on_delete=models.CASCADE)
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE, related_name='trip_comments')
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
