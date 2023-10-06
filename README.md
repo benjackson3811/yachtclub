@@ -53,7 +53,6 @@ The below user stories have been defined for the project.
 - [] Authentication - Logged in Status: As a user I can tell if I am logged in or not so that I can log in if I need to.
 - [] Authentication - Refreshing access tokens: As a user I can maintain my logged-in status until I choose to log out.
 - [] Avatar: As a user I can view user's avatars so that I can easily identify other website users.
-- [] Navigation: Conditional rendering - As a logged out user I can see sign in and sign up options so that I can sign in/sign up.
 
 
 #### Trips
@@ -63,19 +62,14 @@ The below user stories have been defined for the project.
 - [] Edit a Trip: As a users, i can edit a trip/ post title and description if i need to update a detail.
 - [] Delete a Trip: As a user I can delete a Trip / post so that no one can view the picture.
 - [] Search: As a user, I can search for specific trips/ users/ keywords, so that I can find specific details/ trips / user profiles I am most interested in.
-- [] Trip date: As a user I can see how long ago a Trip was made so that I know when the trip was completed.
 
 #### The Trips Page
 - [] View most recent Trips: As a user I can view all the most recent Trips, the most recently created shown first so that I am up to date with the newest content.
 - [] Liked trips: As a logged in user I can view the trips I liked so that I can find the trips I enjoy the most
 - [] Followed users: As a logged in user I can view content filtered by users I follow so that I can keep up to date with content.
-- [] Infinite scroll: As a user I can keep scrolling through the images on the site, that are loaded for me automatically so that I don't have to click on "next page" etc
-
 
 #### Comments
-- [] Trip page: As a user I can view the trips/ posts page so that I can read the comments about the trip.
 - [] Create a comment: As a logged in user I can add comments to a post so that I can share my thoughts about the trip.
-- [] Comment date: As a user I can see how long ago a comment was made so that I know how old a comment is.
 - [] View comments: As a user I can read comments on trips/ posts so that I can read what other users think about the trips/ posts.
 - [] Delete comments: As an owner of a comment I can delete my comment so that I can control removal of my comment from the application
 - [] Edit a comment: As an owner of a comment I can edit my comment so that I can fix or update my existing comment
