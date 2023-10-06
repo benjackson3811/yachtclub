@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 
 
 class Profile(models.Model):
-    owner = models.OnetoOneField(User, on_delete=models.CASCADE, related_name='user_profile')
-    display_name= models.Charfield(max_length=25, null=True, blank=True, related_name='user_profile')
+    owner = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user_profile')
+    display_name= models.CharField(max_length=25, null=True, blank=True)
     birth_date = models.DateField(null=True, blank=True)
     bio = models.TextField(max_length=100, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -16,7 +16,7 @@ class Profile(models.Model):
         ordering = ['-created_at']
         
     def __str__(self):
-        return f”{self.owners}’s profile”
+        return f"{self.owner}'s profile"
     
     
     def create_profile(sender, instance , created, **kwargs):
