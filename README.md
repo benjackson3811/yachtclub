@@ -28,7 +28,7 @@ The project is built using React, JSX, (HTML, Javascript and CSS), specific fram
 
 ---
 
-### Site owner's goal
+### Site Owner's goal
 
 My family are keen sailers and belong to sailing club that allows them to sail with friends all around the UK and Northern Europe. At the minute the only place they can share their pictures is Facebook. I wanted to create a place where they could share their pictures, memories and feedback on old trips.
 
@@ -95,25 +95,25 @@ The below user stories have been defined for the project.
 #### Wireframes
 
 ##### HomePage
-![Screenshot](/src/images/readme-images/home-page.png)
+![Screenshot](/readme-images/home-page.png)
 
 ##### Profile Page
-![Screenshot](/src/images/readme-images/profile-page.png)
+![Screenshot](/readme-images/profile-page.png)
 
 ##### Sign In
-![Screenshot](/src/images/readme-images/sign-in.png)
+![Screenshot](/readme-images/sign-in.png)
 
 ##### Sign Up
-![Screenshot](/src/images/readme-images/sign-up.png)
+![Screenshot](/readme-images/sign-up.png)
 
 ##### Trip Detail
-![Screenshot](/src/images/readme-images/trip-detail.png)
+![Screenshot](/readme-images/trip-detail.png)
 
 ---
 
 #### Database Schema
 
-![Screenshot](/src/images/readme-images/yacht_club_database_schema.png)
+![Screenshot](/readme-images/database-schema.png)
 
 ----
 ##### Data Model
@@ -195,13 +195,13 @@ TRIP_CATEGORIES = (
 #### Colour Scheme
 
 The colour scheme chosen for the website is light colours with stong links to summer and sailing. They provide strong contrasts which will make the information clear and easy to read for the user.
-![Screenshot](/src/images/readme-images/palette.png)
+![Screenshot](/readme-images/palette.png)
 
 ---
 #### Fonts and Typography
 
 - Ruda font used on site, fall back font is sans-serif. Example of Ruda font from.
-![Screenshot](/src/images/readme-images/ruda_font.png)
+![Screenshot](/readme-images/ruda_font.png)
 
 ---
 #### Agile Project Management
@@ -261,11 +261,11 @@ The issues were closed when the work is completed.
 - [Gitpod Repository](https://gitpod.io/): An online integrated development environment (IDE) used for developing and testing the Yacht Club project.
 - [Heroku](https://dashboard.heroku.com/apps): A cloud platform that enables deployment and hosting of web applications. Heroku was used for deploying the Yacht Club project to a live server.
 - [Balsamiq](https://balsamiq.com/): A wireframing tool for creating mockups and prototypes of the Yacht Club website.
-- [DrawSQL]:https://drawsql.app/ - software is a platform used to create, visualize and collaborate on your database entity relationship diagrams
+- [DrawSQL](https://drawsql.app/) - software is a platform used to create, visualize and collaborate on your database entity relationship diagrams
 - [Google Fonts](https://fonts.google.com/): An open-source fonts used for typography on the Yacht Club website.
 - [Font Awesome](https://fontawesome.com/): A library of free  icons to the Yacht Club website.
 - [logo.com](logo.com): used to create the business logo.
-- [Wikipedia] (https://www.wikipedia.org/) - used for the description of a yacht club.
+- [Wikipedia](https://www.wikipedia.org/) - used for the description of a yacht club.
 - [Cloudinary](https://cloudinary.com/): A cloud-based media management platform used for storing and serving images in the Yacht Club project.
 - [freepik.com](https://www.freepik.com/): Website with Millions of Free Graphic Resources
 
@@ -352,5 +352,3 @@ By forking the GitHub Repository you can make a copy of the original repository.
 --- 
 
 ### Credits
-
---- 
