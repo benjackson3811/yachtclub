@@ -9,7 +9,7 @@ class Like(models.Model):
     'owner' is a User instance and 'trip' is a Post instance.
     'unique_together' makes sure a user can't like the same trip twice.
     """
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     trip = models.ForeignKey(Trip, related_name='likes', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     Updated_at = models.DateTimeField(auto_now=True)

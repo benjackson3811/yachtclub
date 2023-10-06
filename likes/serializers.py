@@ -9,7 +9,7 @@ class LikeSerializer(serializers.ModelSerializer):
     The create method handles the unique constraint on 'owner' and ‘trip’
     """
     
-    owner = serializers.ReadOnlyField(source='owner.username')
+    user = serializers.ReadOnlyField(source='owner.username')
     
     class Meta:
         model = Like
