@@ -18,7 +18,7 @@ class Trip(models.Model):
     Trip model, related to 'owner', i.e. a User instance.
     Default image set so that we can always reference image.url.
     """
-    owner  = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='trip_post')
+    user  = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='trip_post')
     trip_title = models.CharField(max_length=30, unique=True, blank=False)
     description = models.TextField(max_length=100, blank=True)
     image = models.ImageField(
