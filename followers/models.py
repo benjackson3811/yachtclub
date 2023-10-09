@@ -8,9 +8,9 @@ class Follower(models.Model):
     'user' = is the user whom is following a User.
     'followed' = is the User that is followed by 'owner'.
     """
-    user = models.ForeignKey(User, related_name='following', on_delete=models.CASCADE)
-    followed = models.ForeignKey(User, related_name='followed', on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, related_name='following', on_delete=models.CASCADE, null=True, blank=True)
+    followed = models.ForeignKey(User, related_name='followed', on_delete=models.CASCADE, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     
     class Meta:
         ordering = ['-created_at']

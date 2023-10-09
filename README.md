@@ -107,7 +107,7 @@ The below user stories have been defined for the project.
 
 #### Database Schema
 
-![Screenshot](/readme-images/yacht_club_database_schema.png)
+![Screenshot](/readme-images/yacht_club_database_scheme.png)
 
 ----
 ##### Data Model
