@@ -16,7 +16,7 @@ class Profile(models.Model):
         ordering = ['-created_at']
         
     def __str__(self):
-        return f"{self.owner}'s profile"
+        return f"{self.user}'s profile"
     
 """
 signal for the creation of the profile
