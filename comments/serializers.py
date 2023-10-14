@@ -11,11 +11,9 @@ class CommentSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source='user.username')
     is_user = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='user.profile.id')
-    avatar = serializers.ReadOnlyField(source='user.profile.avatar.url')
-    created_at = serializers.SerializerMethodField()
-    updated_at = serializers.SerializerMethodField()
+    profile_avatar = serializers.ReadOnlyField(source='user.profile.avatar.url')
 
-    def get_is_owner(self, obj):
+    def get_is_user(self, obj):
         request = self.context['request']
         return request.user == obj.user
 
@@ -23,13 +21,13 @@ class CommentSerializer(serializers.ModelSerializer):
         model = Comment
         fields = [
             'id', 'user', 'is_user', 'profile_id', 'profile_avatar',
-            'created_at', 'updated_at', 'content'
+            'trip', 'created_at', 'updated_at', 'content'
         ]
 
 
 class CommentDetailSerializer(CommentSerializer):
     """
-    Serializer for the Comment model used in Detail view
-    Trip is a read only field, not update needed on each update
+    Detail view comment serializer, 
+    Trip = read only field, no update needed on each comment/ update
     """
-    trip = serializers.ReadOnlyField(source=trip.id')
+    trip = serializers.ReadOnlyField(source='trip.id')
