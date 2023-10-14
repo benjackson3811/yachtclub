@@ -11,19 +11,19 @@ class CommentSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source='user.username')
     is_user = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='user.profile.id')
-    profile_avatar = serializers.ReadOnlyField(source='user.profile.avatar.url')
+    avatar = serializers.ReadOnlyField(source='user.profile.avatar.url')
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
 
     def get_is_owner(self, obj):
         request = self.context['request']
-        return request.user == obj.owner
+        return request.user == obj.user
 
     class Meta:
         model = Comment
         fields = [
-            'id', 'owner', 'is_owner', 'profile_id', 'profile_avatar',
-            'trip', 'created_at', 'updated_at', 'content'
+            'id', 'user', 'is_user', 'profile_id', 'profile_avatar',
+            'created_at', 'updated_at', 'content'
         ]
 
 
