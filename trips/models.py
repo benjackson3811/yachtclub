@@ -34,4 +34,4 @@ class Trip(models.Model):
         ordering = ['-created_at']
         
     def __str__(self):
-        return f'{self.id} {self.title}'
+        return f'{self.id} {self.trip_title}'

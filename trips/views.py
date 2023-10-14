@@ -9,7 +9,7 @@ from yacht_club_api.permissions import IsOwnerOrReadOnly
 
 class TripList(APIView):
     """
-    List Trip or create a trip if logged in
+    Logged in - List Trips / able to create a trip
     The perform_create method associates the trip with the logged in user.
     """
     serializer_class = TripSerializer
