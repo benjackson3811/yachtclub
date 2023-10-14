@@ -4,9 +4,9 @@ from django.contrib.auth.models import User
 
 class Follower(models.Model):
     """
-    Follower model, linked to 'owner' and 'followed'.
-    'user' = is the user whom is following a User.
-    'followed' = is the User that is followed by 'owner'.
+    Follower model, key fields 'user' and 'followed'.
+    'user' = user whom is following.
+    'followed' = User that is followed.
     """
     user = models.ForeignKey(User, related_name='following', on_delete=models.CASCADE, null=True, blank=True)
     followed = models.ForeignKey(User, related_name='followed', on_delete=models.CASCADE, null=True, blank=True)
