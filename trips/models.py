@@ -29,7 +29,6 @@ class Trip(models.Model):
     category = models.CharField(
         max_length=255, blank=False, choices=TRIP_CATEGORIES, default='Sightseeing'
         )
-    trip_categories = models.CharField(max_length=255, blank=False)
     
     class Meta:
         ordering = ['-created_at']
