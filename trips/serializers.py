@@ -1,7 +1,5 @@
 from rest_framework import serializers
 from trips.models import Trip
-from likes.models import Like
-
 
 class TripSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source='user.username')
