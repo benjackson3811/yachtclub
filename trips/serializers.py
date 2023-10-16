@@ -34,7 +34,7 @@ class TripSerializer(serializers.ModelSerializer):
         user = self.context['request'].user
         if user.is_authenticated:
             like = Like.objects.filter(
-                username=user, trip=obj
+                user=user, trip=obj
             ).first()
             return like.id if like else None
         return None
