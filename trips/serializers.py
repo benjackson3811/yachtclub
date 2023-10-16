@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from trips.models import Trip
+from likes.models import Like
+from profiles.models import Profile
 
 
 class TripSerializer(serializers.ModelSerializer):
@@ -7,6 +9,7 @@ class TripSerializer(serializers.ModelSerializer):
     is_user = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='user.profile.id')
     avatar = serializers.ReadOnlyField(source='user.profile.avatar.url')
+    like_id = serializers.SerializerMethodField()
 
     def validate_image(self, value):
         if value.size > 1024 * 1024 *2:
@@ -27,8 +30,18 @@ class TripSerializer(serializers.ModelSerializer):
         request = self.context['request']
         return request.user == obj.user
 
+    def get_like_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            like = Like.objects.filter(
+                username=user, trip=obj
+            ).first()
+            return like.id if like else None
+        return None
+
+
     class Meta:
         model = Trip
         fields = ['id', 'user', 'is_user', 'profile_id', 
         'avatar', 'created_at', 'updated_at', 'trip_title',
-        'description', 'image', 'category' ]
+        'description', 'image', 'category', 'like_id', ]
