@@ -7,7 +7,7 @@ class FollowerSerializer(serializers.ModelSerializer):
     """
     Create method manages - 'user' and 'followed'
     """
-    user = serializers.ReadOnlyField(source='owner.username')
+    user = serializers.ReadOnlyField(source='user.username')
     followed_name = serializers.ReadOnlyField(source='followed.username')
     
     class Meta:

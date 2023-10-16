@@ -23,7 +23,8 @@ class ProfileList(generics.ListAPIView):
         DjangoFilterBackend,
     ]
     filterset_fields = [
-        'user__following__followed__profile',
+        'user__followed',
+        'user_following'
     ]
     ordering_fields = [
         'trips_post_count',
