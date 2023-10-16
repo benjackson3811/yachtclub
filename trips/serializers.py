@@ -10,6 +10,9 @@ class TripSerializer(serializers.ModelSerializer):
     profile_id = serializers.ReadOnlyField(source='user.profile.id')
     avatar = serializers.ReadOnlyField(source='user.profile.avatar.url')
     like_id = serializers.SerializerMethodField()
+    likes_count = serializers.ReadOnlyField()
+    trip_comments_count = serializers.ReadOnlyField()
+
 
     def validate_image(self, value):
         if value.size > 1024 * 1024 *2:
@@ -44,4 +47,4 @@ class TripSerializer(serializers.ModelSerializer):
         model = Trip
         fields = ['id', 'user', 'is_user', 'profile_id', 
         'avatar', 'created_at', 'updated_at', 'trip_title',
-        'description', 'image', 'category', 'like_id', ]
+        'description', 'image', 'category', 'like_id', 'likes_count', 'trip_comments_count']
