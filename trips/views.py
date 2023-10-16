@@ -1,5 +1,6 @@
 from django.db.models import Count
 from rest_framework import generics, permissions, filters
+from django_filters.rest_framework import DjangoFilterBackend
 from .models import Trip
 from .serializers import TripSerializer
 from yacht_club_api.permissions import IsOwnerOrReadOnly
@@ -20,6 +21,7 @@ class TripList(generics.ListCreateAPIView):
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
+        DjangoFilterBackend,
     ]
     filterset_fields = [
         'user__followed__user__profile',

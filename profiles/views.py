@@ -1,5 +1,6 @@
 from django.db.models import Count
 from rest_framework import generics, filters
+from django_filters.rest_framework import DjangoFilterBackend
 from .models import Profile
 from .serializers import ProfileSerializer
 from yacht_club_api.permissions import IsOwnerOrReadOnly
@@ -19,6 +20,10 @@ class ProfileList(generics.ListAPIView):
     serializer_class = ProfileSerializer
     filter_backends = [
         filters.OrderingFilter,
+        DjangoFilterBackend,
+    ]
+    filterset_fields = [
+        'user__following__followed__profile',
     ]
     ordering_fields = [
         'trips_post_count',
