@@ -24,9 +24,8 @@ class TripList(generics.ListCreateAPIView):
         DjangoFilterBackend,
     ]
     filterset_fields = [
-        'user__followed__user__profile',
-        'likes__user__profile',
-        'user__profile',
+        'user__followed',
+        'likes__user',
     ]
     search_fields = [
         'user__username',
