@@ -37,7 +37,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['8000-benjackson381-yachtclub-87dt6y9trp4.ws-eu105.gitpod.io']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -53,16 +52,19 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework.authtoken',
     'dj_rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'dj_rest_auth.registration',
     
-
-
     'profiles',
     'comments',
     'trips',
     'followers',
     'likes',
 ]
-
+SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
