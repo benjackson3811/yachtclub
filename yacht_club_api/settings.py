@@ -58,8 +58,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['localhost', 
-'yacht-club-api.herokuapp.com',
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST'),
+'localhost',
 '8000-benjackson381-yachtclub-87dt6y9trp4.ws-eu105.gitpod.io']
 
 # Application definition
