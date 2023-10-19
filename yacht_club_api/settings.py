@@ -63,7 +63,8 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
    'localhost',
-   'yacht_club_api.herokuapp.com'
+   'yacht_club_api.herokuapp.com', 
+   'yacht-club-api-e8eb7fe2020a.herokuapp.com'
 ]
 
 # Application definition
