@@ -45,6 +45,7 @@ REST_USE_JWT = True
 JWT_AUTH_SECURE = True
 JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
+JWT_AUTH_SAMESITE = 'None'
 
 REST_AUTH_SERIALIZERS = {'USER_DETAILS_SERIALIZER': 'yacht_club_api.serializers.CurrentUserSerializer'}
 
@@ -52,12 +53,14 @@ REST_AUTH_SERIALIZERS = {'USER_DETAILS_SERIALIZER': 'yacht_club_api.serializers.
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-auopscf@2q0*)zej_61vm7)^^mxp-l66$3#4_5_41*in7=^3)*'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['8000-benjackson381-yachtclub-87dt6y9trp4.ws-eu105.gitpod.io']
+ALLOWED_HOSTS = ['localhost', 
+'yacht-club-api.herokuapp.com',
+'8000-benjackson381-yachtclub-87dt6y9trp4.ws-eu105.gitpod.io']
 
 # Application definition
 
@@ -79,7 +82,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration',
-    
+    'corsheaders',
+
     'profiles',
     'comments',
     'trips',
@@ -88,6 +92,7 @@ INSTALLED_APPS = [
 ]
 SITE_ID = 1
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -96,6 +101,16 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+    ]
+else:
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        r"^https://.*\.gitpod\.io$",
+    ]
+
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'yacht_club_api.urls'
 
