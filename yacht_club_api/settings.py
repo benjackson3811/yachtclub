@@ -62,9 +62,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
-    os.environ.get('ALLOWED_HOST'),
+    os.environ.get
    'localhost',
-   '8000-benjackson381-yachtclub-87dt6y9trp4.ws-eu105.gitpod.io'
+   'yacht_club_api.herokuapp.com'
 ]
 
 # Application definition
@@ -119,7 +119,7 @@ if 'CLIENT_ORIGIN' in os.environ:
     CORS_ALLOWED_ORIGINS = [
         os.environ.get('CLIENT_ORIGIN')
     ]
-    
+
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'yacht_club_api.urls'
