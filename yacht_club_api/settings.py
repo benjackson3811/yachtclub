@@ -61,7 +61,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = 'DEBUG' in os.environ
 
 ALLOWED_HOSTS = [
-    os.environ()'ALLOWED_HOST'),
+    os.environ.get('ALLOWED_HOST'),
    'localhost',
    'yacht_club_api.herokuapp.com',
 ]
