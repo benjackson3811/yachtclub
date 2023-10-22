@@ -1,9 +1,13 @@
-.App {
+  .App {
     font-family: "Ruda", sans-serif;
     /* hex colour #f6f4f5 is called cultured */
     background-color: #f6f4f5;
     min-height: 100vh;
-}
+  }
+
+  .Main {
+    padding-top: 81px;
+  }
 
 * {
     box-sizing: border-box;
