@@ -1,0 +1,37 @@
+.App {
+    font-family: "Ruda", sans-serif;
+    /* hex colour #f6f4f5 is called cultured */
+    background-color: #f6f4f5;
+    min-height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+  }
+  
+  a {
+    color: #dbd7d2;
+    transition: color ease-in-out 0.2s;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:hover i {
+    color: #1b1b1b;
+    transition: color ease-in-out 0.2s;
+  }
+  
+  i {
+    color: #cfced3;
+    font-size: 1.5rem;
+    padding: 6px;
+    vertical-align: middle;
+  }
+  
+  i:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.2s;
+    color: #1b1b1b;
+  }
