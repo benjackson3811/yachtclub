@@ -8,6 +8,16 @@ import { useCurrentUser } from '../contexts/CurrentUserContext';
 const NavBar = () => {
   const currentUser = useCurrentUser();
 
+  const addTrip = (
+    <NavLink 
+    className={styles.NavLink} 
+    activeClassName={styles.Active} 
+    to="/trips/create">
+
+      <i className="fas fa-sign-in-alt"></i>Sign in
+  </NavLink>
+  )
+
   const loggedInIcons = <>{currentUser?.username}</>;
   const loggedOutIcons =  (
     <>
