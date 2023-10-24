@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Navbar, Container, Nav } from "react-bootstrap";
 import logo from '../assets/yacht_club_logo.png';
 import styles from '../styles/NavBar.module.css';
@@ -10,6 +10,8 @@ import Avatar from './Avatar';
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+  
+  const { expanded, setExpanded, ref } = useState(false);
 
 const handleSignOut = async () => {
   try {
@@ -76,7 +78,7 @@ const handleSignOut = async () => {
     );
 
   return (
-    <Navbar className={styles.NavBar} expand="md" fixed="top">
+    <Navbar expanded={expand} className={styles.NavBar} expand="md" fixed="top">
       <Container>
         <NavLink to="/">
         <Navbar.Brand>
