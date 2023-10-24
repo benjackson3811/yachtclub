@@ -50,7 +50,7 @@ const handleSignOut = async () => {
     </NavLink>
     <NavLink
       className={styles.NavLink}
-      to={`/profiles/${currentUser?.profile_id}`}
+      to={`/profiles/${currentUser?.avatar}`}
     >
       <Avatar src={currentUser?.avatars} text="Profile" height={40} />
     </NavLink>
