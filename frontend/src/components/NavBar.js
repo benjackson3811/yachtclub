@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {Navbar, Container, Nav } from "react-bootstrap";
 import logo from '../assets/yacht_club_logo.png';
 import styles from '../styles/NavBar.module.css';
@@ -11,23 +11,36 @@ const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   
-  const { expanded, setExpanded, ref } = useState(false);
-
-const handleSignOut = async () => {
-  try {
-    await axios.post("dj-rest-auth/logout/");
-    setCurrentUser(null);
-  } catch (err) {
-    console.log(err);
+  const { expanded, setExpanded } = useState(false);
+  const ref = useRef(null)
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+    if (ref.current && !ref.current.contains(event.target)){
+      setExpanded(false);
+    };
   }
-};
+  
+    document.addEventListener('mouseup', handleClickOutside);
+    return () => {
+      document.removeEventListener('mouseup', handleClickOutside);
+    };
+  }, [ref]);
+  
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const addTripIcon = (
     <NavLink 
     className={styles.NavLink} 
     activeClassName={styles.Active} 
     to="/trips/create">
-      <i class="fa-solid fa-sailboat"></i>Add trip
+      <i className="fa-solid fa-sailboat"></i>Add trip
   </NavLink>
   )
 
@@ -54,7 +67,7 @@ const handleSignOut = async () => {
       className={styles.NavLink}
       to={`/profiles/${currentUser?.avatar}`}
     >
-      <Avatar src={currentUser?.avatars} text="Profile" height={40} />
+      <Avatar src={currentUser?.avatar} text="Profile" height={40} />
     </NavLink>
   </>
 );
@@ -78,7 +91,12 @@ const handleSignOut = async () => {
     );
 
   return (
-    <Navbar expanded={expand} className={styles.NavBar} expand="md" fixed="top">
+    <Navbar 
+      expanded={expanded} 
+      className={styles.NavBar} 
+      expand="md" 
+      fixed="top"
+      >
       <Container>
         <NavLink to="/">
         <Navbar.Brand>
@@ -86,7 +104,11 @@ const handleSignOut = async () => {
           </Navbar.Brand>
           </NavLink>
           {currentUser && addTripIcon}
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle 
+          ref={ref}
+          onClick={() => setExpanded(!expanded)}
+          aria-controls="basic-navbar-nav" 
+          />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
             <NavLink
