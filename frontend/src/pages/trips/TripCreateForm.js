@@ -16,8 +16,9 @@ import styles from "../../styles/TripCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-import { useHistory } from "react-router";
+
 import { axiosReq } from "../../api/axiosDefaults";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function TripCreateForm() {
   const [errors, setErrors] = useState({});
@@ -27,7 +28,7 @@ function TripCreateForm() {
     content: "",
     image: "",
   });
-  const { title, content, image } = postData;
+  const { title, content, image } = tripData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -58,7 +59,7 @@ function TripCreateForm() {
     formData.append("image", imageInput.current.files[0]);
 
     try {
-      const { data } = await axiosReq.trip("/trips/", formData);
+      const { data } = await axiosReq.post("/trips/", formData);
       history.push(`/trips/${data.id}`);
     } catch (err) {
       console.log(err);
@@ -124,7 +125,7 @@ function TripCreateForm() {
               {image ? (
                 <>
                   <figure>
-                    <Image className={appStyles.Image} src={image} rounded />
+                    <Image className={appStyles.Image} src={image} height={400} width={400} rounded />
                   </figure>
                   <div>
                     <Form.Label
@@ -152,6 +153,7 @@ function TripCreateForm() {
                 accept="image/*"
                 onChange={handleChangeImage}
                 ref={imageInput}
+                style={{display: 'none'}}
               />
             </Form.Group>
             {errors?.image?.map((message, idx) => (
