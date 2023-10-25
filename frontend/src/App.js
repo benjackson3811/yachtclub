@@ -5,7 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import './api/axiosDefaults'
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
-import TripCreateForm from "./trips/TripCreateForm";
+import TripCreateForm from "./pages/trips/TripCreateForm";
 
 function App() {
   return (
