@@ -24,11 +24,11 @@ function TripCreateForm() {
   const [errors, setErrors] = useState({});
 
   const [tripData, setTripData] = useState({
-    title: "",
-    content: "",
+    trip_title: "",
+    description: "",
     image: "",
   });
-  const { title, content, image } = tripData;
+  const { trip_title, description, image } = tripData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -54,8 +54,8 @@ function TripCreateForm() {
     event.preventDefault();
     const formData = new FormData();
 
-    formData.append("title", title);
-    formData.append("content", content);
+    formData.append("trip_title", trip_title);
+    formData.append("description", description);
     formData.append("image", imageInput.current.files[0]);
 
     try {
@@ -72,11 +72,11 @@ function TripCreateForm() {
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Form.Label>Title</Form.Label>
+        <Form.Label>Trip Title</Form.Label>
         <Form.Control
           type="text"
-          name="title"
-          value={title}
+          name="trip_title"
+          value={trip_title}
           onChange={handleChange}
         />
       </Form.Group>
@@ -87,12 +87,12 @@ function TripCreateForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Content</Form.Label>
+        <Form.Label>Description</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
-          name="content"
-          value={content}
+          name="description"
+          value={description}
           onChange={handleChange}
         />
       </Form.Group>
