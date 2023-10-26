@@ -18,13 +18,15 @@ function TripPage() {
         const [{data: trip}] = await Promise.all([
           axiosReq.get(`/trips/${id}`),
         ])
-        setTrip({results: [trip]})
-        console.log(trip)
+        setTrip({results: [trip]});
+        console.log(trip);
       } catch(err){
-        console.log(err)
+        console.log(err);
       }
-    }
-  })
+    };
+    handleMount();
+  }, [id]);
+  
 
 
   return (
