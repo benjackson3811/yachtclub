@@ -8,9 +8,9 @@ import Avatar from "../../components/Avatar";
 const Trip = (props) => {
   const {
     id,
-    owner,
+    user,
     profile_id,
-    profile_image,
+    avatar,
     comments_count,
     likes_count,
     like_id,
@@ -22,19 +22,19 @@ const Trip = (props) => {
   } = props;
 
   const currentUser = useCurrentUser();
-  const is_owner = currentUser?.username === owner;
+  const is_user = currentUser?.username === user;
 
   return (
     <Card className={styles.trip}>
       <Card.Body>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_image} height={55} />
-            {owner}
+            <Avatar src={avatar} height={55} />
+            {user}
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && tripPage && "..."}
+            {is_user && tripPage && "..."}
           </div>
         </Media>
       </Card.Body>
@@ -45,7 +45,7 @@ const Trip = (props) => {
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {content && <Card.Text>{content}</Card.Text>}
         <div className={styles.TripBar}>
-          {is_owner ? (
+          {is_user ? (
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>You can't like your own trip!</Tooltip>}

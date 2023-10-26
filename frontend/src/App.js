@@ -7,8 +7,10 @@ import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import TripCreateForm from "./pages/trips/TripCreateForm";
 import TripPage from "./pages/trips/TripPage";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 function App() {
+
   return (
         <div className={styles.App}>
           <NavBar />
