@@ -4,6 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Trip = (props) => {
   const {
@@ -19,10 +20,43 @@ const Trip = (props) => {
     image,
     updated_at,
     tripPage,
+    setTrip,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_user = currentUser?.username === user;
+
+  const handleLike = async () => {
+    try {
+      const { data } = await axiosRes.post("/likes/", { trip: id });
+      setTrips((prevTrips) => ({
+        ...prevTrips,
+        results: prevTrips.results.map((trip) => {
+          return trip.id === id
+            ? { ...trip, likes_count: trip.likes_count + 1, like_id: data.id }
+            : trip;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUnlike = async () => {
+    try {
+      await axiosRes.delete(`/likes/${like_id}/`);
+      settrips((prevTrips) => ({
+        ...prevTrips,
+        results: prevTrips.results.map((trip) => {
+          return trip.id === id
+            ? { ...trip, likes_count: trip.likes_count - 1, like_id: null }
+            : trip;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <Card className={styles.trip}>
