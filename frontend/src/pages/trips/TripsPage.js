@@ -14,6 +14,7 @@ import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 
 import NoResults from "../../assets/no-results.png";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 function TripsPage({ message, filter = ""}) {
     const [trips, setTrips] = useState({ results: [] });
@@ -62,9 +63,15 @@ function TripsPage({ message, filter = ""}) {
         {hasLoaded ? (
           <>
             {trips.results.length ? (
-              trips.results.map((trip) => (
+              <InfiniteScroll
+                children={trips.results.map((trip) => (
                 <Trip key={trip.id} {...trip} setTrips={setTrips} />
-              ))
+              ))}
+              dataLength={trips.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!trips.next}
+              next={() => {}}
+            />
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
