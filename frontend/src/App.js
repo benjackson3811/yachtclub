@@ -11,8 +11,8 @@ import TripsPage from "./pages/trips/TripsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 function App() {
-  const currentUser = useCurrentUser()
-  const profile_id = currentUser?.profile.id || "";
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
 
   return (
     <div className={styles.App}>
