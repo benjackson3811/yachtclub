@@ -20,7 +20,7 @@ const Trip = (props) => {
     image,
     updated_at,
     tripPage,
-    setTrip,
+    setTrips,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -45,7 +45,7 @@ const Trip = (props) => {
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
-      settrips((prevTrips) => ({
+      setTrips((prevTrips) => ({
         ...prevTrips,
         results: prevTrips.results.map((trip) => {
           return trip.id === id
@@ -87,11 +87,11 @@ const Trip = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           ) : like_id ? (
-            <span onClick={() => {}}>
+            <span onClick={( handleUnlike )}>
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={() => {}}>
+            <span onClick={( handleLike )}>
               <i className={`far fa-heart ${styles.HeartOutline}`} />
             </span>
           ) : (
