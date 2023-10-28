@@ -15,6 +15,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 function TripsPage({ message, filter = ""}) {
     const [trips, setTrips] = useState({ results: [] });
@@ -70,7 +71,7 @@ function TripsPage({ message, filter = ""}) {
               dataLength={trips.results.length}
               loader={<Asset spinner />}
               hasMore={!!trips.next}
-              next={() => {}}
+              next={() => fetchMoreData(trips, setTrips)}
             />
             ) : (
               <Container className={appStyles.Content}>
