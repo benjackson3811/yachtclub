@@ -11,24 +11,22 @@ import Trip from "./Trip";
 
 function TripPage() {
   const { id } = useParams();
-  const [trip, setTrip] = useState({results: [] });
+  const [ trip, setTrip ] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{data: trip}] = await Promise.all([
+        const [{ data: trip }] = await Promise.all([
           axiosReq.get(`/trips/${id}`),
-        ])
-        setTrip({results: [trip]});
+        ]);
+        setTrip({ results: [trip] });
         console.log(trip);
       } catch(err){
-        console.log(err);
+        console.log (err) ;
       }
     };
     handleMount();
   }, [id]);
-  
-
 
   return (
     <Row className="h-100">

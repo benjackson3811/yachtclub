@@ -1,5 +1,5 @@
 import React from "react";
-import {Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from '../assets/yacht_club_logo.png';
 import styles from '../styles/NavBar.module.css';
 import { NavLink } from "react-router-dom";
@@ -24,13 +24,13 @@ const NavBar = () => {
   };
 
   const addTripIcon = (
-    <NavLink 
-    className={styles.NavLink} 
-    activeClassName={styles.Active} 
-    to="/trips/create">
-      <i className="fa-solid fa-sailboat"></i>Add trip
+    <NavLink
+      className={styles.NavLink} 
+      activeClassName={styles.Active} 
+      to="/trips/create">
+        <i className="fa-solid fa-sailboat"></i>Add trip
   </NavLink>
-  )
+  );
 
   const loggedInIcons = (
     <>
@@ -39,23 +39,23 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/feed"
       >
-      <i className="fas fa-stream"></i>Feed
+        <i className="fas fa-stream"></i>Feed
     </NavLink>
-    <NavLink
-      className={styles.NavLink}
-      activeClassName={styles.Active}
-      to="/liked"
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/liked"
+      >
+        <i className="fas fa-heart"></i>Liked
+      </NavLink>
+      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+        <i className="fas fa-sign-out-alt"></i>Sign out
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        to={`/profiles/${currentUser?.profile_id}`}
     >
-      <i className="fas fa-heart"></i>Liked
-    </NavLink>
-    <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-      <i className="fas fa-sign-out-alt"></i>Sign out
-    </NavLink>
-    <NavLink
-      className={styles.NavLink}
-      to={`/profiles/${currentUser?.avatar}`}
-    >
-      <Avatar src={currentUser?.avatar} text="Profile" height={40} />
+      <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
     </NavLink>
   </>
 );
@@ -64,8 +64,8 @@ const NavBar = () => {
       <NavLink 
         className={styles.NavLink} 
         activeClassName={styles.Active} 
-        to="/signin">
-
+        to="/signin"
+      >
           <i className="fas fa-sign-in-alt"></i>Sign in
       </NavLink>
       <NavLink
@@ -88,7 +88,7 @@ const NavBar = () => {
       <Container>
         <NavLink to="/">
         <Navbar.Brand>
-          <img src={logo} alt='logo' height="45" />
+          <img src={logo} alt="logo" height="45" />
           </Navbar.Brand>
           </NavLink>
           {currentUser && addTripIcon}
@@ -114,4 +114,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar
+export default NavBar;
