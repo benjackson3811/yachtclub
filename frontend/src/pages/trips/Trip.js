@@ -10,12 +10,12 @@ const Trip = (props) => {
     id,
     user,
     profile_id,
-    avatar,
+    profile_avatar,
     comments_count,
     likes_count,
     like_id,
-    title,
-    content,
+    trip_title,
+    description,
     image,
     updated_at,
     tripPage,
@@ -29,7 +29,7 @@ const Trip = (props) => {
       <Card.Body>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={avatar} height={55} />
+            <Avatar src={profile_avatar} height={55} />
             {user}
           </Link>
           <div className="d-flex align-items-center">
@@ -39,11 +39,11 @@ const Trip = (props) => {
         </Media>
       </Card.Body>
       <Link to={`/trips/${id}`}>
-        <Card.Img src={image} alt={title} />
+        <Card.Img src={image} alt={trip_title} />
       </Link>
       <Card.Body>
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {content && <Card.Text>{content}</Card.Text>}
+        {trip_title && <Card.Title className="text-center">{trip_title}</Card.Title>}
+        {description && <Card.Text>{description}</Card.Text>}
         <div className={styles.TripBar}>
           {is_user ? (
             <OverlayTrigger
@@ -63,7 +63,7 @@ const Trip = (props) => {
           ) : (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>Log in to like trips!</Tooltip>}
+              overlay={<Tooltip>Log in to like a trip!</Tooltip>}
             >
               <i className="far fa-heart" />
             </OverlayTrigger>
