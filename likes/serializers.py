@@ -7,9 +7,9 @@ class LikeSerializer(serializers.ModelSerializer):
     """
     Like model Serializer - with create a constraint on 'user' and ‘trip’
     """
-    
+
     user = serializers.ReadOnlyField(source='user.username')
-    
+
     class Meta:
         model = Like
         fields = ['id', 'created_at', 'user', 'trip']
@@ -20,5 +20,4 @@ class LikeSerializer(serializers.ModelSerializer):
         except IntegrityError:
             raise serializers.ValidationError({
                 'detail': 'possible duplicate'
-                })
-
+            })
