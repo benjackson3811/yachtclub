@@ -34,7 +34,12 @@ function TripsPage({ message, filter = ""}) {
         };
 
         setHasLoaded(false);
-        fetchTrips();
+        const timer = setTimeout(() => {
+            fetchTrips();
+        }, 1000)
+        return () => {
+            clearTimeout(timer);
+        }
       }, [filter, query, pathname]);
   
   return (
