@@ -9,6 +9,7 @@ import TripCreateForm from "./pages/trips/TripCreateForm";
 import TripPage from "./pages/trips/TripPage";
 import TripsPage from "./pages/trips/TripsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import TripEditForm from "./pages/trips/TripEditForm";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/trips/create" render={() => <TripCreateForm />} />
           <Route exact path="/trips/:id" render={()=> <TripPage />} />
+          <Route exact path="/trips/:id/edit" render={() => <TripEditForm />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
