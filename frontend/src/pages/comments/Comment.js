@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Media } from "react-bootstrap";
+import Media from "react-bootstrap/Media";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { MoreDropdown } from "../../components/MoreDropdown";
@@ -56,13 +56,13 @@ const Comment = (props) => {
           <span className={styles.Date}>{updated_at}</span>
           {showEditForm ? (
             <CommentEditForm
-                id={id}
-                profile_id={profile_id}
-                content={content}
-                profileAvatar={profile_avatar}
-                setComments={setComments}
-                setShowEditForm={setShowEditForm}
-              />
+              id={id}
+              profile_id={profile_id}
+              content={content}
+              profileAvatar={profile_avatar}
+              setComments={setComments}
+              setShowEditForm={setShowEditForm}
+            />
           ) : (
             <p>{content}</p>
           )}
