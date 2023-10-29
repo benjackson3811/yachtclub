@@ -28,8 +28,8 @@ function TripPage() {
           axiosReq.get(`/comments/?trip=${id}`)
         ]);
         setTrip({ results: [trip] });
-        setComments(comments)
-      } catch(err){
+        setComments(comments);
+      } catch (err) {
         console.log (err) ;
       }
     };
@@ -53,6 +53,18 @@ function TripPage() {
           ) : comments.results.length ? (
             "Comments"
           ) : null}
+          {comments.results.length ? (
+            comments.results.map(comment => (
+              <p key={comment.id}>
+                {comment.owner}: {comment.content} 
+              </p>
+            ))
+          ) : currentUser ? (
+            <span>No comments yet, be the first to comment!</span>
+          ) : (
+            <span>No comments... yet</span>
+          )}
+
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
