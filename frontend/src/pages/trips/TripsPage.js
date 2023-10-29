@@ -17,6 +17,7 @@ import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function TripsPage({ message, filter = "" }) {
   const [trips, setTrips] = useState({ results: [] });
@@ -24,6 +25,8 @@ function TripsPage({ message, filter = "" }) {
   const { pathname } = useLocation();
 
   const [query, setQuery] = useState("");
+
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
     const fetchTrips = async () => {
@@ -38,17 +41,17 @@ function TripsPage({ message, filter = "" }) {
 
     setHasLoaded(false);
     const timer = setTimeout(() => {
-        fetchTrips();
+      fetchTrips();
     }, 1000)
     return () => {
         clearTimeout(timer);
-    }
-  }, [filter, query, pathname]);
+    };
+  }, [filter, query, pathname, currentUser]);
   
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <PopularProfiles mobile/>
+        <PopularProfiles mobile />
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchBar}
