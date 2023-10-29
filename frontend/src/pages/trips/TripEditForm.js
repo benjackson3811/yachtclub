@@ -79,8 +79,8 @@ function TripEditForm() {
       }
 
     try {
-      const { data } = await axiosReq.post("/trips/", formData);
-      history.push(`/trips/${data.id}`);
+      await axiosReq.put(`/trips/${id}`, formData);
+      history.push(`/trips/${id}`);
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
