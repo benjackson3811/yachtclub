@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useParams } from "react-router-dom/";
 import { axiosReq } from "../../api/axiosDefaults";
 import Trip from "./Trip";
 import Comment from "../comments/Comment";
@@ -13,10 +13,9 @@ import Comment from "../comments/Comment";
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-
 function TripPage() {
   const { id } = useParams();
-  const [ trip, setTrip ] = useState({ results: [] });
+  const [trip, setTrip] = useState({ results: [] });
 
   const currentUser = useCurrentUser();
   const profile_avatar = currentUser?.profile_avatar;
@@ -25,14 +24,14 @@ function TripPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: trip }, {data: comments}] = await Promise.all([
+        const [{ data: trip }, { data: comments }] = await Promise.all([
           axiosReq.get(`/trips/${id}`),
-          axiosReq.get(`/comments/?trip=${id}`)
+          axiosReq.get(`/comments/?trip=${id}`),
         ]);
         setTrip({ results: [trip] });
         setComments(comments);
       } catch (err) {
-        console.log (err) ;
+        console.log(err);
       }
     };
     handleMount();
@@ -48,7 +47,7 @@ function TripPage() {
             <CommentCreateForm
               profile_id={currentUser.profile_id}
               profileAvatar={profile_avatar}
-              post={id}
+              trip={id}
               setTrip={setTrip}
               setComments={setComments}
             />
@@ -56,12 +55,13 @@ function TripPage() {
             "Comments"
           ) : null}
           {comments.results.length ? (
-            comments.results.map(comment => (
-              <Comment 
-              key={comment.id}
-              {...comment}
-              setTrip={setTrip}
-              setComments={setComments}/>
+            comments.results.map((comment) => (
+              <Comment
+                key={comment.id}
+                {...comment}
+                setTrip={setTrip}
+                setComments={setComments}
+             />
             ))
           ) : currentUser ? (
             <span>No comments yet, be the first to comment!</span>
