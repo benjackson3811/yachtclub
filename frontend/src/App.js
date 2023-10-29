@@ -11,6 +11,9 @@ import TripsPage from "./pages/trips/TripsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import TripEditForm from "./pages/trips/TripEditForm";
 import ProfilePage from "./pages/profiles/ProfilePage";
+import UsernameForm from "./pages/profiles/UsernameForm";
+import UserPasswordForm from "./pages/profiles/UserPasswordForm";
+import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -32,6 +35,9 @@ function App() {
           <Route exact path="/trips/:id" render={()=> <TripPage />} />
           <Route exact path="/trips/:id/edit" render={() => <TripEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />} />
+          <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />} />
+          <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
