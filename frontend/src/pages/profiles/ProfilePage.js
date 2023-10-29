@@ -18,7 +18,8 @@ import {
   useProfileData,
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
-import { Button, Image } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Image from "react-bootstrap/Image";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Trip from "../trips/Trip";
 import { fetchMoreData } from "../../utils/utils";
@@ -41,10 +42,10 @@ function ProfilePage() {
     const fetchData = async () => {
       try {
         const [{ data: pageProfile }, { data: profileTrips }] =
-         await Promise.all([
+          await Promise.all([
             axiosReq.get(`/profiles/${id}/`),
-            axiosReq.get(`/trips/?owner__profile=${id}`),
-        ]);
+            axiosReq.get(`/trips/?user__profile=${id}`),
+          ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
@@ -60,14 +61,14 @@ function ProfilePage() {
 
   const mainProfile = (
     <>
-    {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
+      {profile?.is_user && <ProfileEditDropdown id={profile?.id} />}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
-          className={styles.Avatar}
-          roundedCircle
-          src={profile?.avatar}
-          height={45} width={45}
+            className={styles.Avatar}
+            roundedCircle
+            src={profile?.avatar}
+            height={45} width={45}
         />
         </Col>
         <Col lg={6}>
@@ -114,7 +115,7 @@ function ProfilePage() {
   const mainProfileTrips = (
     <>
       <hr />
-      <p className="text-center">Profile owner's posts</p>
+      <p className="text-center">{profile?.users}'s trips</p>
       <hr />
       {profileTrips.results.length ? (
         <InfiniteScroll
@@ -129,7 +130,7 @@ function ProfilePage() {
       ) : (
         <Asset
           src={NoResults}
-          message={`No results found, ${profile?.owner} hasn't posted yet.`}
+          message={`No results found, ${profile?.user} hasn't posted yet.`}
         />
       )}
     </>
