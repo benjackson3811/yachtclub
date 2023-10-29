@@ -37,7 +37,7 @@ const Trip = (props) => {
       await axiosRes.delete(`/trips/${id}/`);
       history.goBack();
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -69,7 +69,7 @@ const Trip = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

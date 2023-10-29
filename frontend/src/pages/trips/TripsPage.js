@@ -32,7 +32,7 @@ function TripsPage({ message, filter = "" }) {
         setTrips(data);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

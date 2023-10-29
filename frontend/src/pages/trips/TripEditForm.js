@@ -39,7 +39,7 @@ function TripEditForm() {
 
         is_user ? setTripData({ trip_title, description, image }) : history.push("/");
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 
@@ -78,7 +78,7 @@ function TripEditForm() {
       await axiosReq.put(`/trips/${id}`, formData);
       history.push(`/trips/${id}`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

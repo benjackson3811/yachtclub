@@ -35,7 +35,7 @@ function TripPage() {
         setTrip({ results: [trip] });
         setComments(comments);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 
