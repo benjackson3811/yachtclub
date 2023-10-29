@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -19,6 +19,7 @@ import btnStyles from "../../styles/Button.module.css";
 
 import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useParams } from "react-router-dom/cjs/react-router-dom";
 
 function TripEditForm() {
   const [errors, setErrors] = useState({});
@@ -32,6 +33,22 @@ function TripEditForm() {
 
   const imageInput = useRef(null);
   const history = useHistory();
+  const { id } = useParams();
+
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const { data } = await axiosReq.get(`/trips/${id}/`);
+        const { trip_title, description, image, is_user } = data;
+
+        is_user ? setTripData({ trip_title, description, image }) : history.push("/");
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    handleMount();
+  }, [history, id]);
 
   const handleChange = (event) => {
     setTripData({
@@ -56,7 +73,10 @@ function TripEditForm() {
 
     formData.append("trip_title", trip_title);
     formData.append("description", description);
-    formData.append("image", imageInput.current.files[0]);
+    
+    if (imageInput?.current?.files[0]) {
+        formData.append("image", imageInput.current.files[0]);
+      }
 
     try {
       const { data } = await axiosReq.post("/trips/", formData);
