@@ -9,9 +9,16 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Trip from "./Trip";
 
+import CommentCreateForm from "../comments/CommentCreateForm";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 function TripPage() {
   const { id } = useParams();
   const [ trip, setTrip ] = useState({ results: [] });
+
+  const currentUser = useCurrentUser();
+  const profile_avatar = currentUser?.profile_avatar;
+  const [comments, setComments] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
@@ -33,7 +40,19 @@ function TripPage() {
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular profiles for mobile</p>
         <Trip {...trip.results[0]} setTrips={setTrip} tripPage />
-        <Container className={appStyles.Content}>Comments</Container>
+        <Container className={appStyles.Content}>
+        {currentUser ? (
+          <CommentCreateForm
+            profile_id={currentUser.profile_id}
+            profileAvatar={profile_avatar}
+            post={id}
+            setTrip={setTrip}
+            setComments={setComments}
+          />
+          ) : comments.results.length ? (
+            "Comments"
+            ) : null}
+        </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         Popular profiles for desktop
