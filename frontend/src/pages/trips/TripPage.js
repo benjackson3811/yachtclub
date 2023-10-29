@@ -66,7 +66,7 @@ function TripPage() {
                   setTrip={setTrip}
                   setComments={setComments}
                 />
-              ))}
+            ))}
               dataLength={comments.results.length}
               loader={<Asset spinner />}
               hasMore={!!comments.next}
