@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom/";
 import { axiosReq } from "../../api/axiosDefaults";
 import Trip from "./Trip";
 import Comment from "../comments/Comment";
+import PopularProfiles from "../profiles/PopularProfiles";
 
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -37,13 +38,14 @@ function TripPage() {
         console.log(err);
       }
     };
+
     handleMount();
   }, [id]);
 
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Popular profiles for mobile</p>
+        <PopularProfiles modile />
         <Trip {...trip.results[0]} setTrips={setTrip} tripPage />
         <Container className={appStyles.Content}>
           {currentUser ? (
@@ -66,7 +68,7 @@ function TripPage() {
                   setTrip={setTrip}
                   setComments={setComments}
                 />
-            ))}
+              ))}
               dataLength={comments.results.length}
               loader={<Asset spinner />}
               hasMore={!!comments.next}
@@ -81,7 +83,7 @@ function TripPage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        Popular profiles for desktop
+        <PopularProfiles />
       </Col>
     </Row>
   );
