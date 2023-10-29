@@ -11,6 +11,7 @@ import Trip from "./Trip";
 
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { Comment } from "../comments/Comment";
 
 function TripPage() {
   const { id } = useParams();
@@ -55,9 +56,7 @@ function TripPage() {
           ) : null}
           {comments.results.length ? (
             comments.results.map(comment => (
-              <p key={comment.id}>
-                {comment.owner}: {comment.content} 
-              </p>
+              <Comment key={comment.id} {...comment}/>
             ))
           ) : currentUser ? (
             <span>No comments yet, be the first to comment!</span>
