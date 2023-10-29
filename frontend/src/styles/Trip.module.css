@@ -1,6 +1,6 @@
 .Trip {
-    background-color: #ffffff;
-    border: 1px solid #dadadf;
+    background-color: #CDEDF6;
+    border: 1px solid #5EB1BF;
     border-radius: 2px;
     margin-bottom: 16px;
     text-align: center;
@@ -12,13 +12,13 @@
   }
   
   .Heart {
-    color: #f85032;
+    color: #ef7b45;
   }
   
   .Heart:hover {
-    color: #2142b2;
+    color: #d84727;
   }
   
   .HeartOutline:hover {
-    color: #f85032;
+    color: #5eb1bf;
   }

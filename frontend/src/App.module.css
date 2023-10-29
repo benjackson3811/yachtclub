@@ -1,7 +1,7 @@
   .App {
     font-family: "Ruda", sans-serif;
     /* hex colour #f6f4f5 is called cultured */
-    background-color: #f6f4f5;
+    background-color: #cdedf6;
     min-height: 100vh;
   }
 
@@ -14,7 +14,7 @@
   }
   
   a {
-    color: #dbd7d2;
+    color: #5eb1bf;
     transition: color ease-in-out 0.2s;
   }
   
@@ -23,12 +23,12 @@
   }
   
   a:hover i {
-    color: #1b1b1b;
+    color: #d84727;
     transition: color ease-in-out 0.2s;
   }
   
   i {
-    color: #cfced3;
+    color: #5eb1bf;
     font-size: 1.5rem;
     padding: 6px;
     vertical-align: middle;
@@ -37,7 +37,7 @@
   i:hover {
     cursor: pointer;
     transition: color ease-in-out 0.2s;
-    color: #1b1b1b;
+    color: #d84727;
   }
 
   figure {
@@ -50,11 +50,11 @@
     width: 5px;
   }
   *::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #cdedf6;
   }
   *::-webkit-scrollbar-thumb {
     background: #888;
   }
   *::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #d84727;
   }
