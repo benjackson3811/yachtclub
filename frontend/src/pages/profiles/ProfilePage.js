@@ -15,19 +15,18 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import {
-    useProfileData,
-    useSetProfileData,
+  useProfileData,
+  useSetProfileData,
 } from "../../contexts/ProfileDataContext";
 import { Button, Image } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Post from "../posts/Post";
+import Trip from "../trips/Trip";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
-import Trip from "../trips/Trip";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
-  const [profileTrips, setProfiletrips] = useState({ results: [] });
+  const [profileTrips, setProfileTrips] = useState({ results: [] });
 
   const currentUser = useCurrentUser();
   const { id } = useParams();
@@ -110,12 +109,12 @@ function ProfilePage() {
     </>
   );
 
-  const mainProfilePosts = (
+  const mainProfileTrips = (
     <>
       <hr />
       <p className="text-center">Profile owner's posts</p>
       <hr />
-      {profilePosts.results.length ? (
+      {profileTrips.results.length ? (
         <InfiniteScroll
           children={profileTrips.results.map((trip) => (
             <Trip key={trip.id} {...trip} setTrips={setProfileTrips} />
@@ -142,7 +141,7 @@ function ProfilePage() {
           {hasLoaded ? (
             <>
               {mainProfile}
-              {mainProfilePosts}
+              {mainProfileTrips}
             </>
           ) : (
             <Asset spinner />
