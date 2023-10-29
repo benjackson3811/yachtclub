@@ -10,6 +10,7 @@ import TripPage from "./pages/trips/TripPage";
 import TripsPage from "./pages/trips/TripsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import TripEditForm from "./pages/trips/TripEditForm";
+import ProfilePage from "./pages/profiles/ProfilePage";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -30,6 +31,7 @@ function App() {
           <Route exact path="/trips/create" render={() => <TripCreateForm />} />
           <Route exact path="/trips/:id" render={()=> <TripPage />} />
           <Route exact path="/trips/:id/edit" render={() => <TripEditForm />} />
+          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
