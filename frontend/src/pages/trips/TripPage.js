@@ -23,11 +23,12 @@ function TripPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: trip }] = await Promise.all([
+        const [{ data: trip }, {data: comments}] = await Promise.all([
           axiosReq.get(`/trips/${id}`),
+          axiosReq.get(`/comments/?trip=${id}`)
         ]);
         setTrip({ results: [trip] });
-        console.log(trip);
+        setComments(comments)
       } catch(err){
         console.log (err) ;
       }
@@ -41,17 +42,17 @@ function TripPage() {
         <p>Popular profiles for mobile</p>
         <Trip {...trip.results[0]} setTrips={setTrip} tripPage />
         <Container className={appStyles.Content}>
-        {currentUser ? (
-          <CommentCreateForm
-            profile_id={currentUser.profile_id}
-            profileAvatar={profile_avatar}
-            post={id}
-            setTrip={setTrip}
-            setComments={setComments}
-          />
+          {currentUser ? (
+            <CommentCreateForm
+              profile_id={currentUser.profile_id}
+              profileAvatar={profile_avatar}
+              post={id}
+              setTrip={setTrip}
+              setComments={setComments}
+            />
           ) : comments.results.length ? (
             "Comments"
-            ) : null}
+          ) : null}
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
