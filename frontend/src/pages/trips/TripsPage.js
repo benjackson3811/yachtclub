@@ -17,32 +17,32 @@ import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
-function TripsPage({ message, filter = ""}) {
-    const [trips, setTrips] = useState({ results: [] });
-    const [hasLoaded, setHasLoaded] = useState(false);
-    const { pathname } = useLocation();
+function TripsPage({ message, filter = "" }) {
+  const [trips, setTrips] = useState({ results: [] });
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const { pathname } = useLocation();
 
-    const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("");
 
-    useEffect(() => {
-        const fetchTrips = async () => {
-          try {
-            const { data } = await axiosReq.get(`/trips/?${filter}search=${query}`);
-            setTrips(data);
-            setHasLoaded(true);
-          } catch (err) {
-            console.log(err);
-          }
-        };
+  useEffect(() => {
+    const fetchTrips = async () => {
+      try {
+        const { data } = await axiosReq.get(`/trips/?${filter}search=${query}`);
+        setTrips(data);
+        setHasLoaded(true);
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
-        setHasLoaded(false);
-        const timer = setTimeout(() => {
-            fetchTrips();
-        }, 1000)
-        return () => {
-            clearTimeout(timer);
-        }
-      }, [filter, query, pathname]);
+    setHasLoaded(false);
+    const timer = setTimeout(() => {
+        fetchTrips();
+    }, 1000)
+    return () => {
+        clearTimeout(timer);
+    }
+  }, [filter, query, pathname]);
   
   return (
     <Row className="h-100">
@@ -61,6 +61,7 @@ function TripsPage({ message, filter = ""}) {
             placeholder="Search trips"
           />
         </Form>
+
         {hasLoaded ? (
           <>
             {trips.results.length ? (
@@ -68,11 +69,11 @@ function TripsPage({ message, filter = ""}) {
                 children={trips.results.map((trip) => (
                 <Trip key={trip.id} {...trip} setTrips={setTrips} />
               ))}
-              dataLength={trips.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!trips.next}
-              next={() => fetchMoreData(trips, setTrips)}
-            />
+                dataLength={trips.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!trips.next}
+                next={() => fetchMoreData(trips, setTrips)}
+              />
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />

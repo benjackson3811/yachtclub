@@ -78,13 +78,13 @@ const Trip = (props) => {
       <Card.Body>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_avatar} height={55} />
+            <Avatar src={profile_avatar} height={45} />
             {user}
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
             {is_user && tripPage && (
-              <MoreDropdown 
+              <MoreDropdown
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
               />
