@@ -8,10 +8,6 @@ import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 
-import Asset from "../../components/Asset";
-
-import Upload from "../../assets/upload.png";
-
 import styles from "../../styles/TripCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -129,7 +125,7 @@ function TripEditForm() {
         cancel
       </Button>
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        create
+        save
       </Button>
     </div>
   );
@@ -141,32 +137,18 @@ function TripEditForm() {
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
-            <Form.Group className="text-center">
-              {image ? (
-                <>
-                  <figure>
-                    <Image className={appStyles.Image} src={image} height={400} width={400} rounded />
-                  </figure>
-                  <div>
-                    <Form.Label
-                      className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
-                      htmlFor="image-upload"
-                    >
-                      Change the image
-                    </Form.Label>
-                  </div>
-                </>
-              ) : (
+        <Form.Group className="text-center">
+                <figure>
+                <Image className={appStyles.Image} src={image} height={400} width={400} rounded />
+                </figure>
+                <div>
                 <Form.Label
-                  className="d-flex justify-content-center"
-                  htmlFor="image-upload"
+                    className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                    htmlFor="image-upload"
                 >
-                  <Asset
-                    src={Upload}
-                    message="Click or tap to upload an image"
-                  />
+                    Change the image
                 </Form.Label>
-              )}
+                </div>
 
               <Form.File
                 id="image-upload"
