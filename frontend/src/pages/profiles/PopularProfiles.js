@@ -1,9 +1,9 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
-import Profile from "./Profile";
 import { useProfileData } from "../../contexts/ProfileDataContext";
+import Profile from "./Profile";
 
 const PopularProfiles = ({ mobile }) => {
   const { popularProfiles } = useProfileData();
@@ -20,12 +20,12 @@ const PopularProfiles = ({ mobile }) => {
           {mobile ? (
             <div className="d-flex justify-content-around">
               {popularProfiles.results.slice(0, 4).map((profile) => (
-                <Profile key={profile.id} profile={profile} mobile/>
+                <Profile key={profile.id} profile={profile} mobile />
               ))}
             </div>
           ) : (
             popularProfiles.results.map((profile) => (
-              <Profile key={profile.id} profile={profile} mobile/>
+              <Profile key={profile.id} profile={profile} />
             ))
           )}
         </>
@@ -33,7 +33,7 @@ const PopularProfiles = ({ mobile }) => {
         <Asset spinner />
       )}
     </Container>
-  )
-}
+  );
+};
 
-export default PopularProfiles
+export default PopularProfiles;
