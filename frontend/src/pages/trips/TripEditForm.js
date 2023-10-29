@@ -12,10 +12,8 @@ import styles from "../../styles/TripCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-
+import { useHistory, useParams  } from "react-router-dom/cjs/react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { useParams } from "react-router-dom/cjs/react-router-dom";
 
 function TripEditForm() {
   const [errors, setErrors] = useState({});
@@ -71,8 +69,8 @@ function TripEditForm() {
     formData.append("description", description);
     
     if (imageInput?.current?.files[0]) {
-        formData.append("image", imageInput.current.files[0]);
-      }
+      formData.append("image", imageInput.current.files[0]);
+    }
 
     try {
       await axiosReq.put(`/trips/${id}`, formData);
@@ -137,14 +135,14 @@ function TripEditForm() {
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
-        <Form.Group className="text-center">
-                <figure>
+            <Form.Group className="text-center">
+              <figure>
                 <Image className={appStyles.Image} src={image} height={400} width={400} rounded />
-                </figure>
+              </figure>
                 <div>
                 <Form.Label
-                    className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
-                    htmlFor="image-upload"
+                  className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                  htmlFor="image-upload"
                 >
                     Change the image
                 </Form.Label>
