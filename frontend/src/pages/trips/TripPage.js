@@ -8,10 +8,11 @@ import appStyles from "../../App.module.css";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Trip from "./Trip";
+import Comment from "../comments/Comment";
 
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Comment } from "../comments/Comment";
+
 
 function TripPage() {
   const { id } = useParams();
