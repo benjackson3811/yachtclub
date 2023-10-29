@@ -5,6 +5,7 @@ import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
+import { MoreDropdown } from "../../components/MoreDropdown";
 
 const Trip = (props) => {
   const {
@@ -68,7 +69,7 @@ const Trip = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_user && tripPage && "..."}
+            {is_user && tripPage && <MoreDropdown />}
           </div>
         </Media>
       </Card.Body>
