@@ -14,31 +14,42 @@ import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
-import { 
-    useProfileData, 
-    useSetProfileData 
+import {
+    useProfileData,
+    useSetProfileData,
 } from "../../contexts/ProfileDataContext";
 import { Button, Image } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Post from "../posts/Post";
+import { fetchMoreData } from "../../utils/utils";
+import NoResults from "../../assets/no-results.png";
+import Trip from "../trips/Trip";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [profileTrips, setProfiletrips] = useState({ results: [] });
+
   const currentUser = useCurrentUser();
-  const {id} = useParams();
+  const { id } = useParams();
+
   const setProfileData = useSetProfileData();
-  const {pageProfile} = useProfileData();
+  const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
   const is_user = currentUser?.username === profile?.user;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }] = await Promise.all([
-          axiosReq.get(`/profiles/${id}/`),
+        const [{ data: pageProfile }, { data: profileTrips }] =
+         await Promise.all([
+            axiosReq.get(`/profiles/${id}/`),
+            axiosReq.get(`/trips/?owner__profile=${id}`),
         ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
+        setProfileTrips(profileTrips);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -51,8 +62,12 @@ function ProfilePage() {
     <>
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
-          <Image className={styles.Avatar}
-          roundedCircle src={profile?.avatar} height={45} width={45}/>
+          <Image
+          className={styles.Avatar}
+          roundedCircle
+          src={profile?.avatar}
+          height={45} width={45}
+        />
         </Col>
         <Col lg={6}>
           <h3 className="m-2">{profile?.user}</h3>
@@ -100,6 +115,22 @@ function ProfilePage() {
       <hr />
       <p className="text-center">Profile owner's posts</p>
       <hr />
+      {profilePosts.results.length ? (
+        <InfiniteScroll
+          children={profileTrips.results.map((trip) => (
+            <Trip key={trip.id} {...trip} setTrips={setProfileTrips} />
+          ))}
+          dataLength={profileTrips.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!profileTrips.next}
+          next={() => fetchMoreData(profileTrips, setProfileTrips)}
+        />
+      ) : (
+        <Asset
+          src={NoResults}
+          message={`No results found, ${profile?.owner} hasn't posted yet.`}
+        />
+      )}
     </>
   );
 
