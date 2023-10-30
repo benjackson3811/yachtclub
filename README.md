@@ -123,7 +123,7 @@ The below user stories have been defined for the project.
 
 | Name            | Database Key    | Field Type    | Validation |
 | --------------- | --------------- | ------------- | ---------- |
-| Owner_following | owner_following | ForeignKey    | User, related_name=’author’, on_delete=models.CASCADE     |
+| User_following  | useer_following | ForeignKey    | User, related_name=’author’, on_delete=models.CASCADE     |
 | Trip            | trip            | ForeignKey    | to=Trip, on_delete=models.CASCADE, related_name='trip_comments'     |
 | Comment         | comment         | ForeignKey    | to=Trip, on_delete=models.CASCADE, related_name=’trip_comments’   |
 | Created_at      | created_at      | DateTimeField | auto_now_add=True   |
@@ -134,7 +134,7 @@ The below user stories have been defined for the project.
 
 | Name            | Database Key    | Field Type    | Validation |
 | --------------- | --------------- | ------------- | ---------- |
-| Owner_following | owner_following | ForeignKey    | User, related_name='following', on_delete=models.CASCADE  |
+| User _following | user _following | ForeignKey    | User, related_name='following', on_delete=models.CASCADE  |
 | Followed        | followed        | ForeignKey    | User, related_name='followed', on_delete = models.CASCADE |
 | Created_at      | created_at      | DateTimeField | auto_now_add=True |
 
@@ -153,7 +153,7 @@ TRIP_CATEGORIES = (
 ```
 | Name            | Database Key    | Field Type    | Validation |
 | --------------- | --------------- | ------------- | ---------- |
-| Owner           | owner           | ForeignKey    | to=User, on_delete=models.CASCADE, related_name='Trip_post’   |
+| User            | user            | ForeignKey    | to=User, on_delete=models.CASCADE, related_name='Trip_post’   |
 | Trip_title      | trip_title      | Charfield     | max_length=30, unique=True, blank=False  |
 | Description     | description     | TextField     | max_length=100, blank=True,related_name='Trip_post’   |
 | Image           | image           | ImageField    | trip_image, folder = trips, null = True, blank = True     |
@@ -166,7 +166,7 @@ TRIP_CATEGORIES = (
 
 | Name            | Database Key    | Field Type    | Validation |
 | --------------- | --------------- | ------------- | ---------- |
-| Owner           | owner           | ForeignKey    | to=User, on_delete=models.CASCADE, related_name='initiated_like_request_events'   |
+| User            | user            | ForeignKey    | to=User, on_delete=models.CASCADE, related_name='initiated_like_request_events'   |
 | Trip            | trip            | ForeignKey    | Trip, on_delete=models.CASCADE, related_name=likes    |
 | Created_at      | created_at      | DateTimeField | auto_now_add=True     |
 | Updated_at      | updated_at      | DateTimeField | auto_now=True     |
