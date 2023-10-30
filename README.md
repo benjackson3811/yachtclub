@@ -427,6 +427,10 @@ By forking the GitHub Repository you can make a copy of the original repository.
 --- 
 
 ### Credits
-I would like to credit.
+- The code institute moments project was the main basis for each page and part of this project. 
+The code, formating and UI has massively influenced each section and can be seen through out each part of the project.
+
+### Thanks
 - my mentor Jullia Konn, for her generousity with her time and advise.
 - my family for their patience. 
+
