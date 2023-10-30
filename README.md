@@ -3,10 +3,7 @@
 # Milestone project 5 Frontend
 
 --- 
-**Live Website**
-
----
-### Am i response image
+**Live Website** (https://yacht-club-api-e8eb7fe2020a.herokuapp.com/)
 
 --- 
 ### Project purpose and description
@@ -43,45 +40,37 @@ My family are keen sailers and belong to sailing club that allows them to sail w
 
 The below user stories have been defined for the project.
 
-#### Navigation 
-- [] Navigation: As a user I can view a navbar from every page so that I can navigate easily between pages.
-- [] Routing: As a user I can navigate through pages quickly so that I can view content seamlessly without page refresh
+#### Navigation and Authentication
+- [&check;] Navigation: As a user I can view a navbar from every page so that I can navigate easily between pages.
 
-#### Authentication and account creation
-- [] Authentication - Sign up: As a user I can create a new account so that I can access all the features for signed up users.
-- [] Authentication - Sign in: As a user I can sign in to the app so that I can access functionality for logged in users.
-- [] Authentication - Logged in Status: As a user I can tell if I am logged in or not so that I can log in if I need to.
-- [] Authentication - Refreshing access tokens: As a user I can maintain my logged-in status until I choose to log out.
-- [] Avatar: As a user I can view user's avatars so that I can easily identify other website users.
+- [&check;] Authentication - Sign up: As a user I can create a new account so that I can access all the features for signed up users.
+- [&check;] Authentication - Sign in: As a user I can sign in to the app so that I can access functionality for logged in users.
 
-
+---
 #### Trips
-- [] Create Trips: As a user I can create a Trip / post so that I can share my images of a recent Yacht club trip!
-- [] View a Trip: As a user I can view the details of a single trip picture so that I can learn more about it.
-- [] Like a Trip: As a  user I can like a shared trip so that I can show my support for the trip that interest me.
-- [] Edit a Trip: As a users, i can edit a trip/ post title and description if i need to update a detail.
-- [] Delete a Trip: As a user I can delete a Trip / post so that no one can view the picture.
-- [] Search: As a user, I can search for specific trips/ users/ keywords, so that I can find specific details/ trips / user profiles I am most interested in.
+- [&check;] Create Trips: As a user I can create a Trip / post so that I can share my images of a recent Yacht club trip!
+- [&check;] View a Trip: As a user I can view the details of a single trip picture so that I can learn more about it.
+- [&check;] Like a Trip: As a  user I can like a shared trip so that I can show my support for the trip that interest me.
+- [&check;] Edit a Trip: As a users, i can edit a trip/ post title and description if i need to update a detail.
+- [&check;] Delete a Trip: As a user I can delete a Trip / post so that no one can view the picture.
+- [&check;] Search: As a user, I can search for specific trips/ users/ keywords, so that I can find specific details/ trips / user profiles I am most interested in.
 
-#### The Trips Page
-- [] View most recent Trips: As a user I can view all the most recent Trips, the most recently created shown first so that I am up to date with the newest content.
-- [] Liked trips: As a logged in user I can view the trips I liked so that I can find the trips I enjoy the most
-- [] Followed users: As a logged in user I can view content filtered by users I follow so that I can keep up to date with content.
+---
 
 #### Comments
-- [] Create a comment: As a logged in user I can add comments to a post so that I can share my thoughts about the trip.
-- [] View comments: As a user I can read comments on trips/ posts so that I can read what other users think about the trips/ posts.
+- [&check;] Create a comment: As a logged in user I can add comments to a post so that I can share my thoughts about the trip.
+- [&check;] View comments: As a user I can read comments on trips/ posts so that I can read what other users think about the trips/ posts.
 - [] Delete comments: As an owner of a comment I can delete my comment so that I can control removal of my comment from the application
-- [] Edit a comment: As an owner of a comment I can edit my comment so that I can fix or update my existing comment
+- [&check;] Edit a comment: As an owner of a comment I can edit my comment so that I can fix or update my existing comment
 
 #### The Profile Page
-- [] Profile page: As a user I can view other users profiles so that I can see their posts and learn more about them
-- [] Most followed profiles: As a user I can see a list of the most followed profiles so that I can see which profiles are popular
-- [] User profile - user stats: As a user I can view statistics about a specific user: bio, number of posts, follows and users followed so that I can learn more about them
-- [] Follow/Unfollow a user: As a logged in user I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed
+- [&check;] Profile page: As a user I can view other users profiles so that I can see their posts and learn more about them
+- [&check;] Most followed profiles: As a user I can see a list of the most followed profiles so that I can see which profiles are popular
+- [&check;] User profile - user stats: As a user I can view statistics about a specific user: bio, number of posts, follows and users followed so that I can learn more about them
+- [&check;] Follow/Unfollow a user: As a logged in user I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed
 - [] View all trips created by a specific user: As a user I can view all the trips created by a specific user so that I can catch up on their created trips, or decide I want to follow them
 - [] Edit profile: As a logged in user I can edit my profile so that I can change my profile picture and bio
-- [] Update username and password: As a logged in user I can update my username and password so that I can change my display name and keep my profile secure
+- [&check;] Update username and password: As a logged in user I can update my username and password so that I can change my display name and keep my profile secure
 
 ---
 ### Structure
@@ -89,25 +78,25 @@ The below user stories have been defined for the project.
 #### Wireframes
 
 ##### HomePage
-![Screenshot](/readme-images/home-page.png)
+![Screenshot](/frontend/src/assets/readme-images/wireframes/home-page.png)
 
 ##### Profile Page
-![Screenshot](/readme-images/profile-page.png)
+![Screenshot](/frontend/src/assets/readme-images/wireframes/profile-page.png)
 
 ##### Sign In
-![Screenshot](/readme-images/sign-in.png)
+![Screenshot](/frontend/src/assets/readme-images/wireframes/sign-in.png)
 
 ##### Sign Up
-![Screenshot](/readme-images/sign-up.png)
+![Screenshot](/frontend/src/assets/readme-images/wireframes/sign-up.png)
 
 ##### Trip Detail
-![Screenshot](/readme-images/trip-detail.png)
+![Screenshot](/frontend/src/assets/readme-images/wireframes/trip-detail.png)
 
 ---
 
 #### Database Schema
 
-![Screenshot](/readme-images/yacht_club_database_scheme.png)
+![Screenshot](/frontend/src/assets/readme-images/yacht_club_database_scheme.png)
 
 ----
 ##### Data Model
@@ -116,7 +105,7 @@ The below user stories have been defined for the project.
 
 | Name            | Database Key    | Field Type    | Validation |
 | --------------- | --------------- | ------------- | ---------- |
-| Owner           | owner           | OneToOneField | User, on_delete=models.CASCADE,related_name='user_profile'    |
+| User            | User            | OneToOneField | User, on_delete=models.CASCADE,related_name='user_profile'    |
 | Avatar          | avatar          | ImageField    | upload_to='images/', default='../profilepicture>', blank=True     |
 | Display_name    | display_name    | Charfield     | max_length=25, null=True, blank=True, related_name='user_profile'     |
 | Birth_date      | birth_date      | DateField     | null=True, blank=True     |
@@ -189,20 +178,28 @@ TRIP_CATEGORIES = (
 #### Colour Scheme
 
 The colour scheme chosen for the website is light colours with stong links to summer and sailing. They provide strong contrasts which will make the information clear and easy to read for the user.
-![Screenshot](/readme-images/palette.png)
+![Screenshot](/frontend/src/assets/readme-images/yacht-pallette.png)
 
 ---
 #### Fonts and Typography
 
 - Ruda font used on site, fall back font is sans-serif. Example of Ruda font from.
-![Screenshot](/readme-images/ruda_font.png)
+![Screenshot](/frontend/src/assets/readme-images/ruda_font.png)
 
 ---
 #### Agile Project Management
 
 To manage and track the development process GitHub projects has been used.
 
-For each User Story a GitHub Issue was created, which was then allocated to a milestone (Epic). 
+For each User Story a GitHub Issue was created, which was then allocated to a milestone (Epic).
+
+In total 6 epics were created.
+- Trips
+- Comments
+- Navigation and Authentication
+- Profiles
+- Yacht Club Readme Documentation
+- Future Tasks
 
 With in each User Story the acceptance criteria has been defined to make it clear when the User Story has been completed. 
 
@@ -213,19 +210,116 @@ The issues were closed when the work is completed.
 ### Features
 
 1 **Navbar**
+
+    - Separate Component.
+    - Located on the top right of page.
+    - Visbile on all pages. 
+    - Simple design, The page you are on is Red.
+    - When Signed in you have more options.
+
+![Screenshot](/frontend/src/assets/readme-images/features/Navbar.png)
+
 2 **Sign up**
+
+    - Sign up image on Navbar.
+
+![Screenshot](/frontend/src/assets/readme-images/features/Sign%20in%20and%20Sign%20Up.png)
+
+    - On clicking image taken to sign up page.
+    - Bootstrap format and hero image taken from Code Institute Moments project.
+
+![Screenshot](/frontend/src/assets/readme-images/features/sign-in.png)
+
 3 **Sign in**
+
+    - Sign up image on Navbar.
+
+![Screenshot](/frontend/src/assets/readme-images/features/Sign%20in%20and%20Sign%20Up.png)
+
+
+    - On clicking image taken to sign up page.
+    - Bootstrap format and hero image taken from Code Institute Moments project.
+
+
+![Screenshot](/frontend/src/assets/readme-images/features/sign-up.png)
+
 4 **Feed**
+
+    - Feed shows all the trips adds to the site.
+    - constant scroll avalible for user.
+
+![Screenshot](/frontend/src/assets/readme-images/features/feed.png)
+
 5 **Add Trip**
+
+    - section on right Navbar
+    - only avalible when sign in.
+    - sections to add picture, trip title and description.
+    - same format as efit trip section below.
+
+![Screenshot](/frontend/src/assets/readme-images/features/Add_trip.png)
+
 6 **Trip Detail**
+
+    - How information is presented after being added to site.
+
+![Screenshot](/frontend/src/assets/readme-images/features/trip_detail.png)
+
 7 **Edit trip**
+
+    - To edit a trip. 
+    - Only possible if you own the trip image (you posted it). Click on the top right of the imagee
+
+![Screenshot](/frontend/src/assets/readme-images/features/Edit_trip.png)
+
+    - Three sections you can amend.
+    - The image.
+    - Trip title.
+    - Description.
+
+![Screenshot](/frontend/src/assets/readme-images/features/Edit_trip_part2.png)
+
 8 **Delete Trip**
+
+    - Functionality to delete a trip.
+    - Click on trash can (only avalible if you own the image).
+
+![Screenshot](/frontend/src/assets/readme-images/features/Edit_trip.png)
+
 9 **Profile**
+
+    - Profile details when you click on your avatar.
+    - Trips you have posted
+    - Number of followers
+    - Number of people you are following.
+
+![Screenshot](/frontend/src/assets/readme-images/features/profile_page.png)
+
 10 **Follow/ Followed**
+
+    - Visbile on right of all screens. 
+    - Separate component. 
+    - Not avaliable if not logged in.
+
+
+![Screenshot](/frontend/src/assets/readme-images/features/follow_unfollow.png)
+
 11 **Comments**
-12 **Categories**
-13 **Footer**
-**Future Features**
+
+    - Only Create, Read and Update functionality added.
+    - Able to add to all trips.
+    - See known bugs sections on comments.
+
+![Screenshot](/frontend/src/assets/readme-images/features/comments.png)
+
+12 **Future Features**
+
+[future features project](https://github.com/users/benjackson3811/projects/12/views/1) 
+
+-   features not implemented due to prioritising other tasks..
+    * delete comment functionality
+    * change username/ password functionality
+    * default profile image showing on NavBar and Trippage
 
 
 ---
@@ -266,20 +360,7 @@ The issues were closed when the work is completed.
 ---
 ### Testing
 
-please see testing.md when created for:
-
-1. **manual testing**
-2. **user testing goals**
-3. **automated testing**
-unit testing
-4. **Validation**
-w3c
-js bin
-ci linter - python
-i am responsive
-lighthouse report
-browser testing
-5. **Bug Tracking**
+Please see [TESTING.md](TESTING.md) for all testing performed
 
 ---
 
@@ -346,3 +427,6 @@ By forking the GitHub Repository you can make a copy of the original repository.
 --- 
 
 ### Credits
+I would like to credit.
+- my mentor Jullia Konn, for her generousity with her time and advise.
+- my family for their patience. 
